@@ -14,13 +14,14 @@
  */
 public class Room 
 {
-    public String description;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+    //6
+    private String description;
+    private Room northExit;
+    private Room southExit;
+    private Room eastExit;
+    private Room westExit;
 
-    /**
+     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
      * "an open court yard".
@@ -30,7 +31,45 @@ public class Room
     {
         this.description = description;
     }
-
+    //Q6
+    public Room getExit(String direction){
+        Room nextRoom = null;
+        if(direction.equals("north")) {
+            nextRoom = northExit;
+        }
+        if(direction.equals("east")) {
+            nextRoom = eastExit;
+        }
+        if(direction.equals("south")) {
+            nextRoom = southExit;
+        }
+        if(direction.equals("west")) {
+            nextRoom = westExit;
+        }
+        return nextRoom;
+    }
+    
+    /** * Return a description of the room’s exits, 
+    * for example, "Exits: north west". 
+     * @return A description of the available exits. 
+    */ 
+    public String getExitString(){
+        String exitStirng = "You are " + description;
+        exitStirng += "\nExits: ";
+        if(!northExit. equals(null)){
+            exitStirng +="north ";
+        }
+        if(!eastExit.equals( null)){
+            exitStirng +=("east ");
+        }
+        if(!eastExit.equals( null)){
+            exitStirng +=("south ");
+        }
+        if(!eastExit.equals( null)){
+            exitStirng +=("west ");
+        }
+        return exitStirng;
+    }
     /**
      * Define the exits of this room.  Every direction either leads
      * to another room or is null (no exit there).
